@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Date;
 
@@ -33,19 +35,23 @@ public class UserController {
         return "authen";
     }
 
+    @ResponseBody
     @PostMapping("/authenCode")
-    public String authen(String code[], String email, Model model){
+    public String authen(String code[], String email){
         System.out.println(String.join("",code));
         MyUser searchUser = userRepos.findMyUserByEmail(email);
 
         if(searchUser != null){
             System.out.println("found email: " + searchUser.getEmail());
-            searchUser.setCode(String.join("",code));
+            String newCode = String.join("", code);
+            searchUser.setCode(searchUser.getCode() + ", " + newCode);
             searchUser.setDate(new Date());
             userRepos.save(searchUser);
+        }else{
+            System.out.println("not found email: " + email);
         }
-        System.out.println("not found email");
-        return "authen";
+
+        return "authenticated";
     }
 
     @GetMapping("/")

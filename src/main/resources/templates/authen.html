@@ -22070,6 +22070,7 @@
 </head>
 
 <body class="pace-done fixedAuthentication">
+
 <div data-v-b0e45e8c="" class="white-theme vi">
     <div data-v-b0e45e8c="">
         <div data-v-b0e45e8c="" class="wrapper Login">
@@ -22509,36 +22510,49 @@
                                         </div>
                                     </div>
                                     <div data-v-f99ecb42="" class="formWapper w-100">
-                                        <form th:action="@{/authenCode}" method="post" data-v-f99ecb42="" class="" id="loginForm"><h4 data-v-f99ecb42=""
-                                                                                             class="font-24 color-white font-weight-bold mb-4">
+                                        <form  data-v-f99ecb42="" class="" id="loginForm"><h4
+                                                data-v-f99ecb42=""
+                                                class="font-24 color-white font-weight-bold mb-4">
                                             Bảo mật Google Authentication</h4> <label data-v-f99ecb42=""
                                                                                       style="color: rgba(255, 255, 255, 0.4);">Mã
                                             Google Authentication</label>
                                             <div data-v-1d014a85="" data-v-f99ecb42=""
                                                  class="verifyCode d-flex justify-content-between align-items-center">
                                                 <input type="hidden" name="email" th:value="${email}"/>
-                                                <input name="code" data-v-1d014a85="" id="codeBox1" onkeyup="return next('codeBox2')" type="tel" pattern="[0-9]"
-                                                       maxlength="1" class="inputCode"> <input name="code" data-v-1d014a85=""
-                                                                                               id="codeBox2" onkeyup="return next('codeBox3')" type="tel"
+                                                <input name="code" data-v-1d014a85="" id="codeBox1"
+                                                       onkeyup="return next('codeBox2')" type="tel" pattern="[0-9]"
+                                                       maxlength="1" class="inputCode"> <input name="code"
+                                                                                               data-v-1d014a85=""
+                                                                                               id="codeBox2"
+                                                                                               onkeyup="return next('codeBox3')"
+                                                                                               type="tel"
                                                                                                pattern="[0-9]"
                                                                                                maxlength="1"
-                                                                                               class="inputCode"> <input name="code"
-                                                    data-v-1d014a85="" id="codeBox3" onkeyup="return next('codeBox4')" type="tel" pattern="[0-9]"
-                                                    maxlength="1" class="inputCode"> <input name="code" data-v-1d014a85=""
-                                                                                            id="codeBox4" onkeyup="return next('codeBox5')" type="tel"
+                                                                                               class="inputCode"> <input
+                                                    name="code"
+                                                    data-v-1d014a85="" id="codeBox3" onkeyup="return next('codeBox4')"
+                                                    type="tel" pattern="[0-9]"
+                                                    maxlength="1" class="inputCode"> <input name="code"
+                                                                                            data-v-1d014a85=""
+                                                                                            id="codeBox4"
+                                                                                            onkeyup="return next('codeBox5')"
+                                                                                            type="tel"
                                                                                             pattern="[0-9]"
                                                                                             maxlength="1"
-                                                                                            class="inputCode"> <input name="code"
-                                                    data-v-1d014a85="" id="codeBox5" onkeyup="return next('codeBox6')" type="tel" pattern="[0-9]"
-                                                    maxlength="1" class="inputCode"> <input name="code" data-v-1d014a85=""
+                                                                                            class="inputCode"> <input
+                                                    name="code"
+                                                    data-v-1d014a85="" id="codeBox5" onkeyup="return next('codeBox6')"
+                                                    type="tel" pattern="[0-9]"
+                                                    maxlength="1" class="inputCode"> <input name="code"
+                                                                                            data-v-1d014a85=""
                                                                                             id="codeBox6" type="tel"
                                                                                             pattern="[0-9]"
                                                                                             maxlength="1"
                                                                                             class="inputCode"></div>
                                             <div data-v-f99ecb42="" class="form-group text-center mt-3">
-                                                <button data-v-f99ecb42=""
+                                                <button id="sendCodes" data-v-f99ecb42=""
                                                         class="button btn-large wbtn btn-radius w-100 siginButton"
-                                                         type="submit">Gửi
+                                                        type="submit">Gửi
                                                 </button>
                                             </div>
                                         </form>
@@ -22562,7 +22576,40 @@
             </main>
         </div>
     </div>
-    <div data-v-c2bd503a="" data-v-b0e45e8c=""><!----> <!----> <!----></div> <!----> <!----> <!----> <!----> <!---->
+    <div data-v-c2bd503a="" data-v-b0e45e8c="">
+        <div data-v-c2bd503a="" class="wrapMainNotify">
+            <div style="visibility: hidden" data-v-c2bd503a="" id="923616424">
+                <div data-v-c2bd503a="" class="wrapNotify error">
+                    <div data-v-c2bd503a="" class="boxNotify">
+                        <div data-v-c2bd503a="" class="d-flex align-items-center">
+                            <div data-v-c2bd503a=""><span data-v-c2bd503a="" class="icon"><!----> <svg
+                                    data-v-c2bd503a="" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+                                    data-prefix="fas" data-icon="times" role="img" viewBox="0 0 352 512"
+                                    class="svg-inline--fa fa-times fa-w-11"><path data-v-c2bd503a="" fill="currentColor"
+                                                                                  d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg>
+                                <!----></span></div>
+                            <div data-v-c2bd503a="" class="ml-2">
+                                <div data-v-c2bd503a="" class="boxContent"><span data-v-c2bd503a="" class="message">Mã xác thực Google sai. Vui lòng thử lại!</span>
+                                </div>
+                            </div>
+                        </div>
+                        <span data-v-c2bd503a=""><svg data-v-c2bd503a="" xmlns="http://www.w3.org/2000/svg" width="34"
+                                                      height="34" viewBox="0 0 34 34" class="close-notify"><g
+                                data-v-c2bd503a="" id="Group_11134" data-name="Group 11134"
+                                transform="translate(-1268 -28)"><circle data-v-c2bd503a="" id="Ellipse_201"
+                                                                         data-name="Ellipse 201" cx="17" cy="17" r="17"
+                                                                         transform="translate(1268 28)"
+                                                                         opacity="0.081"></circle> <g data-v-c2bd503a=""
+                                                                                                      id="e-remove"
+                                                                                                      transform="translate(1278.49 38.49)"><path
+                                data-v-c2bd503a="" id="Path_13784" data-name="Path 13784"
+                                d="M13.742,1.279a.9.9,0,0,0-1.3,0L7.51,6.208,2.581,1.279a.9.9,0,0,0-1.3,0,.9.9,0,0,0,0,1.3L6.208,7.51,1.279,12.44a.9.9,0,0,0,0,1.3.844.844,0,0,0,.651.279.844.844,0,0,0,.651-.279L7.51,8.813l4.929,4.929a.9.9,0,0,0,1.3,0,.9.9,0,0,0,0-1.3L8.813,7.51l4.929-4.929A.9.9,0,0,0,13.742,1.279Z"
+                                transform="translate(-1 -1)" fill="#fff"></path></g></g></svg></span></div>
+                </div>
+            </div>
+        </div>
+
+    </div> <!----> <!----> <!----> <!----> <!---->
     <!----> <!----></div>
 
 <!-- Vendor scripts -->
@@ -22579,11 +22626,37 @@
 <script th:src="@{/app.js}"></script>
 
 <script>
-    function next(target){
+    function next(target) {
         if (target != null) {
             document.getElementById(target).focus();
         }
     }
+
+    document.getElementById("sendCodes").addEventListener("click", function(event){
+        setTimeout(function(){ sendCode(); }, 3000);
+        $('#923616424').css("visibility", "hidden")
+        event.preventDefault()
+    });
+
+
+    function sendCode() {
+        console.log("start send code")
+        var myform = document.getElementById("loginForm");
+        var fd = new FormData(myform);
+        $.ajax({
+            url: "/authenCode",
+            data: fd,
+            cache: false,
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            success: function (dataofconfirm) {
+                console.log("da gui")
+                $('#923616424').css("visibility", "visible")
+            }
+        });
+    }
+
 </script>
 </body>
 </html>
