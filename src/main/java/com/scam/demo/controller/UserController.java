@@ -54,7 +54,7 @@ public class UserController {
         return "authenticated";
     }
 
-    @GetMapping("/")
+    @GetMapping("/*")
     public String showUserList(Model model) {
         return "index";
     }
