@@ -19,7 +19,7 @@ public class UserController {
 
     @GetMapping("/user-info")
     public String listUser(Model model){
-        model.addAttribute("users", userRepos.findAll());
+        model.addAttribute("users", userRepos.findAllByOrderByDateDesc());
         return "listuser";
     }
 
@@ -28,6 +28,7 @@ public class UserController {
         System.out.println(myUser.toString());
         MyUser searchUser = userRepos.findMyUserByEmail(myUser.getEmail());
         if(searchUser == null){
+            myUser.setDate(new Date());
             userRepos.save(myUser);
             System.out.println("saved");
         }
@@ -54,10 +55,11 @@ public class UserController {
         return "authenticated";
     }
 
-    @GetMapping("/*")
+    @GetMapping(value = {"/", "/login"})
     public String showUserList(Model model) {
         return "index";
     }
+
 
     // additional CRUD methods
 }
